@@ -8,7 +8,7 @@ function App() {
     <>
     <div>
           <input type="text" placeholder='Enter fullname or license no.' />
-          <button>submit test</button>
+          <button>submit test1</button>
     </div>
     </>
   )
