@@ -49,7 +49,7 @@ router.post("/db",async(req,res)=>{
 })
 
 //routes
-app.use("",router)
+app.use("/api",router)
 
 const PORT= process.env.PORT
 app.listen(PORT,()=>{

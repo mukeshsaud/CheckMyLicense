@@ -9,7 +9,7 @@ export default defineConfig(({mode})=>{
   plugins: [react(),tailwindcss(),],
   server:{open:true,
     proxy:{
-      "/db":{
+      "/api/db":{
         target:env.VITE_RENDERBACKEND_URL,
         changeOrigin:true
       }
