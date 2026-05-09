@@ -20,7 +20,7 @@ function App() {
     const apiCall=async()=>{
       try{
     
-           const res= await fetch(`${import.meta.env.RENDERBACKEND_URL}/db`,
+           const res= await fetch(`${import.meta.env.VITE_RENDERBACKEND_URL}/db`,
                {
                    method:"post",
                    body:JSON.stringify({value}),
