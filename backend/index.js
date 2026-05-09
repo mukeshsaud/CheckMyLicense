@@ -6,7 +6,7 @@ const pgp=pgPromise();
 const db=pgp(process.env.SUPABASEDATABASE_URL)
 const router=express.Router();
 const app=express();
-const value= "01-14-89069516";
+
 
 // middleware
 const allowedOrigins = process.env.CLIENT_URLS?.split(",");
