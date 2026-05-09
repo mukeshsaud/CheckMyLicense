@@ -8,7 +8,7 @@ export default defineConfig({
   server:{open:true,
     proxy:{
       "/db":{
-        target:"http://localhost:4000",
+        target:`${import.meta.env.RENDERBACKEND_URL}`,
         changeOrigin:true
       }
     }
