@@ -21,23 +21,22 @@ app.use(express.urlencoded({extended:false}))
 
 
 router.get("/db",async(req,res)=>{
-        try{const data= await db.any('SELECT * FROM mnr where firstname=$1 and lastname=$2',['MUKESH SINGH','SAUD'])
+        try{const data= await db.any('SELECT * FROM checklicensemnr where firstname=$1 and lastname=$2',['MUKESH SINGH','SAUD'])
                         
         return res.json({
             sucess:true,
             data:data,
-            ss:'ss'
         })
     }
     catch(err){
-        res.status(500).json({error:err.json})
+        res.status(500).json({error:err.message})
     }
 })
 router.post("/db",async(req,res)=>{
     const value= req.body.value;
     try
     {
-            const data=await db.any("select * from mnr where licenseno=$1 or firstname||' '||lastname=$1",[`${value.toUpperCase()}`])
+            const data=await db.any("select * from checklicensemnr where licenseno=$1 or firstname||' '||lastname=$1",[`${value.toUpperCase()}`])
             return res.json({
             success:true,
             data:data,
