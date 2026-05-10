@@ -19,7 +19,8 @@ const allowedOrigins = process.env.CLIENT_URLS?.split(",");
 
 app.use(cors({
     origin:allowedOrigins,
-    credentials:true
+    credentials:true,
+    maxAge: 86400 // browser caches preflight for 24 hours 
 }))
 
 app.use(express.json())
