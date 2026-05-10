@@ -40,7 +40,7 @@ function App() {
 
                 else if(data.data.length===1){
                   setError(false);
-                  setSuccessMsg(` please collect your license from \n
+                  setSuccessMsg(` please collect your license from 
                     mahendranagar transport office(9:00 AM to 5:00 PM) `
                                 )}
                 else {
