@@ -7,11 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "nodemon /Users/mukeshsaud/Desktop/projects/licenseCheck/backend/index.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
     "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "multer": "^2.1.1",
     "pg-promise": "^12.6.2",

@@ -12,18 +12,20 @@ function App() {
   
     setSuccessMsg('');
     e.preventDefault();
+    const trimmed=value.trim();
 
-      setValue(value.trim())
-      apiCall();       
+      setValue(trimmed)
+      apiCall(trimmed);       
   }
   
-    const apiCall=async()=>{
+    const apiCall=async(trimmed)=>{
       try{
-    
-           const res= await fetch(`${import.meta.env.VITE_RENDERBACKEND_URL}/api/db`,
+         
+          //  const res= await fetch(`/api/db`,   //for local host coz proxy handles the paths
+            const res= await fetch(`${import.meta.env.VITE_RENDERBACKEND_URL}/api/db`, //for online
                {
                    method:"post",
-                   body:JSON.stringify({value}),
+                   body:JSON.stringify({value:trimmed}),
                    credentials:"include",
                    headers:{"Content-Type":"application/json"}
                 })
@@ -53,6 +55,8 @@ function App() {
           }
     catch(err){
                console.log(err);
+               setError(true); // fix: show error to user
+                setSuccessMsg('Something went wrong. Please try again.');
                }
     }
     
@@ -66,6 +70,7 @@ function App() {
            setBtnDisable(false);
          }
     },[value])
+
       
   return (
     <div className='min-h-screen max-h-fit w-screen bg-[#222944] text-white flex flex-col items-center justify-center gap-10 pt-10'>
@@ -81,7 +86,7 @@ function App() {
           className='w-[80vw] placeholder:margin-2 h-12 md:w-[50vw] lg:w-[30vw] pl-10 bg-white text-black rounded '/>
           <button type='submit' className={`w-[80vw] md:w-[50vw] lg:w-[30vw] rounded-xl h-13  ${btnDisable?'bg-[#5e6ea7] text-white/65  ':'bg-[rgb(95,124,228)]'}`}
           disabled={btnDisable}
-          >View Result </button>
+          >View Result</button>
           <div className={`whitespace-pre-line md:text-base lg:text-lg 
              ${error?'text-red-500 text-lg animate-pulse':'text-green-500  text-sm'} text-center pb-10`}>
       {successMsg}
