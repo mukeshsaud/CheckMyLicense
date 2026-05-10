@@ -32,7 +32,7 @@ router.post("/db",async(req,res)=>{
     const value= req.body.value;
     try
     {// checklicensemnr table for online and mnr table for offline
-            const data=await db.any("select * from mnr where licenseno=$1 or firstname||' '||lastname=$1",[`${value.toUpperCase()}`])
+            const data=await db.any("select * from checklicensemnr where licenseno=$1 or firstname||' '||lastname=$1",[`${value.toUpperCase()}`])
             return res.json({
             success:true,
             data:data,
