@@ -35,18 +35,17 @@ function App() {
                 if(data.data.length===0)
                 {
                   setError(true);
-                  setSuccessMsg('No record found(try entering full name).')
+                  setSuccessMsg('No records found \n (Try entering your full name)')
                 }
 
                 else if(data.data.length===1){
                   setError(false);
-                  setSuccessMsg(` your license is found in the record:
-                                  ${data.data.map((d)=>`Name:${d.firstname+' '+d.lastname} \n Licenseno:${d.licenseno} \n Applicantid:${Number(d.applicantid)}`)}
-                                   (Please collect it from mahendranagar yatayat office)`
+                  setSuccessMsg(` please collect your license from \n
+                    mahendranagar transport office(9:00 AM to 5:00 PM) `
                                 )}
                 else {
                         setError(false);
-                        setSuccessMsg(` your name is found in the record. verify your license no/applicant id:
+                        setSuccessMsg(`Please verify your License No./Applicant ID:
                          ${data.data.map((d,i)=>
                          `${i+1}. Name:${d.firstname+' '+d.lastname} Licenseno:${d.licenseno} Applicantid:${Number(d.applicantid)} `)
                         .join("\n")  
@@ -88,7 +87,7 @@ function App() {
           disabled={btnDisable}
           >View Result</button>
           <div className={`whitespace-pre-line md:text-base lg:text-lg 
-             ${error?'text-red-500 text-lg animate-pulse':'text-green-500  text-sm'} text-center pb-10`}>
+             ${error?'text-red-500 text-lg ':'text-green-500  text-sm'} text-center pb-10`}>
       {successMsg}
      </div>
       </form>
